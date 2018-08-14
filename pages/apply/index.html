@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>참여 : 유튜브 댓글 이벤트 : R3turnDev</title>
+
+    {{ get_global('bootstrap.html') | safe }}
+    {{ get_global('font-awesome.html') | safe}}
+
+    {{ get_global('gtag.html') | safe }}
+
+    <script>
+        var active_navbar="{{ navbar_active }}";
+    </script>
+
+</head>
+<body>
+<!-- Head Navigation -->
+{{ get_global('navigation.html') | safe }}
+
+<!-- Footer -->
+{{ get_global('footer.html') | safe }}
+<script>
+    // Set Navigation bar
+    if(active_navbar)
+        $(".nav-item._"+active_navbar).addClass("active");
+</script>
+</body>
+</html>

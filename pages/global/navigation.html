@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-secondary navbar-dark text-white">
+    <div class="container">
+        <a class="navbar-brand" href="/">유튜브 댓글 이벤트</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item _apply">
+                    <a class="nav-link" href="/apply">
+                        <i class="fas fa-book"></i>
+                        참여하기
+                    </a>
+                </li>
+                <li class="nav-item _create">
+                    <a class="nav-link" href="/create">
+                        <i class="fas fa-plus-square"></i>
+                        이벤트 만들기
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">{% if session.credentials.logged_in %}
+                <li class="nav-item _login">
+                    <a class="nav-link" href="/login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        로그인
+                    </a>
+                </li>{% else %}
+                <li class="nav-item nav-link">
+                    환영합니다, <span id="user_display_name">{{ session.credentials.display_name }}</span>님!
+                </li>
+                <li>
+                    <a class="nav-link" href="/login/out">
+                        <i class="fas fa-sign-out-alt"></i>
+                        로그아웃
+                    </a>
+                </li>{% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN : 유튜브 댓글 이벤트 : R3turnDev</title>
+
+    {{ get_global('bootstrap.html') | safe }}
+    {{ get_global('font-awesome.html') | safe}}
+
+    {{ get_global('gtag.html') | safe }}
+
+    <script>
+        var active_navbar="{{ navbar_active }}";
+    </script>
+
+</head>
+<body>
+<!-- Head Navigation -->
+{{ get_global('navigation.html') | safe }}
+<div class="container">
+    <div class="container text-center">
+        <a class="btn btn-primary social-login-btn social-google" href="{{ oauth.google | safe }}" target="_blank"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+    </div>
+</div>
+
+<!-- Footer -->
+{{ get_global('footer.html') | safe }}
+<script>
+    // Set Navigation bar
+    if(active_navbar)
+        $(".nav-item._"+active_navbar).addClass("active");
+</script>
+</body>
+</html>

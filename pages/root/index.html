@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>유튜브 댓글 이벤트 : R3turnDev</title>
+
+    {{ get_global('bootstrap.html') | safe }}
+    {{ get_global('font-awesome.html') | safe}}
+
+    {{ get_global('gtag.html') | safe }}
+
+    <script>
+        var active_navbar="{{ navbar_active }}";
+    </script>
+
+</head>
+
+<body>
+<!-- Head Navigation -->
+{{ get_global('navigation.html', nbar=navbar_active) | safe }}
+
+<!-- Content posts -->
+<div class="container">
+    <div class="posts" style="margin-top: 80px;">
+        <!--- Parallel Slide show -->
+        <div class="post">
+            <div class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="height: 200px;">
+                        <h2>세상에서 가장 공정한 추첨</h2><br>
+                        <h5>
+                            <button class="btn btn-outline-success" disabled>
+                                추첨 과정 자동화
+                                <i aria-hidden="true" class="fas fa-check"></i>
+                            </button>
+                            <button class="btn btn-outline-success" disabled>
+                                모든 소스 공개
+                                <i aria-hidden="true" class="fab fa-github"></i>
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="carousel-item" style="height: 200px;">
+                        <h2>세상에서 가장 편리한 추첨</h2><br>
+                        <h5>
+                            <button class="btn btn-outline-primary" disabled>
+                                구글(유튜브) 계정으로 로그인
+                                <i aria-hidden="true" class="fab fa-youtube"></i>
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="carousel-item" style="height: 200px;">
+                        <h2>세상에서 가장 안전한 추첨</h2><br>
+                        <h5>
+                            <button class="btn btn-outline-danger" disabled>
+                                전화번호
+                                <i aria-hidden="true" class="fas fa-times"></i>
+                            </button>
+                            <button class="btn btn-outline-danger" disabled>
+                                이메일
+                                <i aria-hidden="true" class="fas fa-times"></i>
+                            </button>
+                        </h5>
+                    </div>
+                </div>
+                <!-- Carousel Slide Indicator -->
+                <!-- <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class=" active" style="border: 0.5px solid grey;"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class="" style="border: 0.5px solid grey;"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2" class="" style="border: 0.5px solid grey;"></li>
+                </ol> -->
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="post" style="margin-top: 100px;">
+            <!-- Heading -->
+            <div class="row">
+                <h2>시작하기</h2><br>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col">
+                    <h4>행사 참여자이신가요?</h4><br>
+                    <button class="btn btn-primary" onclick="login('apply');">이벤트 참여하기</button>
+                </div>
+
+                <!-- Center vertical line -->
+                <div class="col-1"></div>
+                <div class="col-0" style="border: 0.4px solid gray;"></div>
+                <div class="col-1"></div>
+
+                <div class="col">
+                    <h4>행사 진행자이신가요?</h4><br>
+                    <button class="btn btn-primary" onclick="login('create');">이벤트 만들기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+{{ get_global('footer.html') | safe }}
+<script>
+    // Initialize parallel slideshow
+    $(".carousel").carousel(
+        {
+            interval: 4000
+        }
+    );
+    function login(type) {
+        if(type==="apply") {
+            location.href="login?redirect_uri=/apply";
+        } else if(type==="create") {
+            location.href="login?redirect_uri=/create";
+        }
+    }
+
+    // Set Navigation bar
+    if(active_navbar)
+        $(".nav-item._"+active_navbar).addClass("active");
+</script>
+</body>
+</html>
