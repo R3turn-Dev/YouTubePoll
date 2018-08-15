@@ -16,14 +16,12 @@
 <!-- Head Navigation -->
 {{ get_global('navigation.html') | safe }}
 
+<script>
+    window.opener.success();
+    window.close();
+</script>
 
 <!-- Footer -->
 {{ get_global('footer.html') | safe }}
-<script>
-    // Set Navigation bar
-    if(active_navbar)
-        $(".nav-item._"+active_navbar).addClass("active");
-
-</script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Erorr : 유튜브 댓글 이벤트 : R3turnDev</title>
+
+    {{ get_global('bootstrap.html') | safe }}
+    {{ get_global('font-awesome.html') | safe}}
+
+    {{ get_global('gtag.html') | safe }}
+</head>
+<body>
+<script>
+    var description = "{{ reason | safe }}";
+
+    if(description){
+        alert(description);
+    } else {
+        alert("예끼치 못한 오류로 인하여 로그인에 실패하였습니다.");
+    }
+
+    window.close();
+</script>
+</body>
+</html>

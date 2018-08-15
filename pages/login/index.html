@@ -11,6 +11,7 @@
 
     <script>
         var active_navbar="{{ navbar_active }}";
+        var redirect_uri="{{ redirect_uri | safe }}";
     </script>
 
 </head>
@@ -33,6 +34,11 @@
     // Popup manager
     function popup(uri) {
         window.open(uri, "_blank", "height=600, width=600");
+    }
+
+    // Success Handler
+    function success() {
+        location.href = redirect_uri;
     }
 </script>
 </body>
