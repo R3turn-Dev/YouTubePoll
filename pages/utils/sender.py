@@ -1,7 +1,7 @@
 from os import listdir
 from os.path import realpath
 from time import time
-from flask import render_template_string, send_from_directory, session, current_app
+from flask import render_template_string, send_from_directory, session
 
 
 def rpath(cls):

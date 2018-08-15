@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app
+from flask import Blueprint
 from .utils import sender
 
 
@@ -27,7 +27,6 @@ class Root:
 
         @self.parent.route("/<any(css, img, js, media):folder>/<path:filename>")
         def statics(folder, filename):
-            print(f"{path}/", f"{folder}/{filename}")
             return sender.send_raw(f"{path}/", f"{folder}/{filename}")
 
 
