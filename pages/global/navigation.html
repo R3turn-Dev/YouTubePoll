@@ -16,7 +16,7 @@
                     </a>
                 </li>
             </ul>
-            <ul class="navbar-nav">{% if session.credentials.logged_in %}
+            <ul class="navbar-nav">{% if not session['credentials']['logged_in'] %}
                 <li class="nav-item _login">
                     <a class="nav-link" href="/login">
                         <i class="fas fa-sign-in-alt"></i>
@@ -24,7 +24,7 @@
                     </a>
                 </li>{% else %}
                 <li class="nav-item nav-link">
-                    환영합니다, <span id="user_display_name">{{ session.credentials.display_name }}</span>님!
+                    환영합니다, <span id="user_display_name">{{ session['credentials']['display_name'] }}</span>님!
                 </li>
                 <li>
                     <a class="nav-link" href="/login/out">
