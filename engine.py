@@ -21,7 +21,7 @@ app.secret_key = _secret_key
 def make_empty_session(*_, **__):
     if not session.get("credentials"):
         session['credentials'] = {
-            "logged_in": True,
+            "logged_in": False,
             "display_name": "placeholder"
         }
 
