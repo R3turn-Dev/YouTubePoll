@@ -19,7 +19,7 @@
 {{ get_global('navigation.html') | safe }}
 <div class="container">
     <div class="container text-center">
-        <a class="btn btn-primary social-login-btn social-google" href="{{ oauth.google | safe }}" target="_blank"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
+        <a class="btn btn-primary social-login-btn social-google" href="javascript:popup('{{ oauth.google | safe }}');" target="_blank"><i class="fab fa-google"></i> 구글 계정으로 로그인</a>
     </div>
 </div>
 
@@ -29,6 +29,11 @@
     // Set Navigation bar
     if(active_navbar)
         $(".nav-item._"+active_navbar).addClass("active");
+
+    // Popup manager
+    function popup(uri) {
+        window.open(uri, "_blank", "height=600, width=600");
+    }
 </script>
 </body>
 </html>
